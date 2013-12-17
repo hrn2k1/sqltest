@@ -1,0 +1,3 @@
+{
+  "SQL_CONN" : "Driver={SQL Server Native Client 10.0};Server=tcp:niqqqj7roh.database.windows.net,1433;Database=TodoList6_db;Uid=TodoList6@niqqqj7roh;Pwd=Admin123;Encrypt=yes;Connection Timeout=30;"
+}
