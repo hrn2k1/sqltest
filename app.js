@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express.createServer();
-var sql = require('node-sqlserver');
+//var sql = require('node-sqlserver');
 
 var conn_str = "Driver={SQL Server Native Client 11.0};" +
                "Server=tcp:niqqqj7roh.database.windows.net,1433" +
@@ -11,7 +11,7 @@ var port = process.env.port || 3331;
 
 app.get('/', function (req, res) {
     var taskSet = [];
-    sql.open(conn_str, function (err, conn) {
+    /*sql.open(conn_str, function (err, conn) {
         if (err) {
             res.end("Error opening the connection!");
             return;
@@ -31,7 +31,7 @@ app.get('/', function (req, res) {
             res.end('Done --\n');
         });
 
-    }); // sql.open
+    }); // sql.open*/
 });
 app.listen(port);
 
