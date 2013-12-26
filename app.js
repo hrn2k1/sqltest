@@ -36,14 +36,27 @@ http.createServer(app).listen(app.get('port'), function(){
 });*/
 
 var edge = require('edge');
+var http = require("http");
+var url = require("url");
 
 var getTop10Products = edge.func('sql', function () {/*
     select top 10 * from Products
 */});
 
-getTop10Products(null, function (error, result) {
+http.createServer(function(request, response) {
+    var uri = url.parse(request.url).pathname;
+	
+	getTop10Products(null, function (error, result) {
     if (error) throw error;
     console.log(result);
     console.log(result[0].ProductName);
     console.log(result[1].Price);
+	response.setHeader("content-type", "text/plain");
+         response.write(JSON.stringify(result));
+    response.end();
 });
+	
+}).listen(process.env.port || 8181);
+
+
+
