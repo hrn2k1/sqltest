@@ -40,7 +40,7 @@ var http = require("http");
 var url = require("url");
 
 var getTop10Products = edge.func('sql', function () {/*
-    select top 10 * from Products
+    select top 10 * from Products order by ProductName
 */});
 
 http.createServer(function(request, response) {
